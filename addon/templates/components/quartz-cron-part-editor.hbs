@@ -1,0 +1,101 @@
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="all" checked={{isAll}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  每{{unit}}
+</div>
+{{#if isDayOfMonthOrDayOfWeek}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="no_specific" checked={{isNoSpecific}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  未指定
+</div>
+{{/if}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="range" checked={{isRange}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  从
+  <select class="range-startfrom" disabled={{notRange}} onchange={{action (mut startFrom) value="target.value" }}>
+    <option value="*" selected={{eq startFrom "*"}}>未指定</option>
+    {{#each startFromOptions as |i|}}
+    <option value={{i}} selected={{eq startFrom i}}>{{i}}</option>
+    {{/each}}
+  </select>
+  至
+  <select class="range-endto" disabled={{notRange}} onchange={{action (mut endTo) value="target.value" }}>
+    <option value="*" selected={{eq startFrom "*"}}>未指定</option>
+    {{#each endToOptions as |i|}}
+    <option value={{i}} selected={{eq endTo i}}>{{i}}</option>
+    {{/each}}
+  </select>
+</div>
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="step" checked={{isStep}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  从
+  <select class="step-startfrom" disabled={{notStep}} onchange={{action (mut startFrom) value="target.value" }}>
+    <option value="*" selected={{eq startFrom "*"}}>未指定</option>
+    {{#each startFromOptions as |i|}}
+    <option value={{i}} selected={{eq startFrom i}}>{{i}}</option>
+    {{/each}}
+  </select>
+  起，每隔
+  {{input class="step-stepvalue" disabled=notStep type="number" value=step}} {{unit}}
+</div>
+{{#if isDayOfMonth}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="weekday" checked={{isWeekday}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  每月
+  {{input class="weekday" disabled=notWeekday type="number" value=weekday}} {{unit}}
+  最近的那个工作日
+</div>
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="last" checked={{isLast}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  每月最后一天
+</div>
+{{/if}}
+{{#if isDayOfWeek}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="last" checked={{isLast}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  每月最后一个
+  <select class="last-day" disabled={{notLast}} onchange={{action (mut lastDay) value="target.value" }}>
+    <option value="*" selected={{eq lastDay "*"}}>未指定</option>
+    {{#each daysOfAWeek as |i|}}
+    <option value={{i.value}} selected={{eq lastDay i.value}}>{{i.text}}</option>
+    {{/each}}
+  </select>
+</div>
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="nth" checked={{isNth}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  每月第
+  {{input class="nth-n" disabled=notNth type="number" value=nthN}}
+  个
+  <select class="nth-day" disabled={{notNth}} onchange={{action (mut nthDay) value="target.value" }}>
+    <option value="*" selected={{eq nthDay "*"}}>未指定</option>
+    {{#each daysOfAWeek as |i|}}
+    <option value={{i.value}} selected={{eq nthDay i.value}}>{{i.text}}</option>
+    {{/each}}
+  </select>
+</div>
+{{/if}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="list" checked={{isList}}
+   onchange={{action (mut cronType) value="target.value"}}>
+   指定时间：
+   <div style="margin-left: 20px;">
+     {{#each list as |li|}}
+      <span style="display: inline-block; min-width: 72px;">
+        <label>
+          {{!-- <input type="checkbox" disabled={{notList}} checked={{li.checked}}
+           onchange={{action "toggleListItem" li}}>
+          {{li.value}} --}}
+          {{input class="list-item" type="checkbox" disabled=notList checked=li.checked change=(action "toggleListItem" li)}}
+          <span>{{li.value}}</span>
+        </label>
+      </span>
+     {{/each}}
+   </div>
+</div>

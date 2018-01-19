@@ -1,0 +1,1 @@
+export { default } from 'ember-quartz-cron/components/quartz-cron-day-of-week-editor';

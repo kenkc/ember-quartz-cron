@@ -1,0 +1,62 @@
+<style>
+  .part-editor-form {
+    display: none;
+  }
+
+  .part-year:checked~.part-editor-form-year,
+  .part-week:checked~.part-editor-form-day-of-week,
+  .part-month:checked~.part-editor-form-month,
+  .part-day:checked~.part-editor-form-day-of-month,
+  .part-hour:checked~.part-editor-form-hour,
+  .part-minute:checked~.part-editor-form-minute,
+  .part-second:checked~.part-editor-form-second,
+  .part-raw:checked~.part-editor-form-raw {
+    display: block;
+  }
+</style>
+<div>
+  <p>Result: {{cron}}</p>
+</div>
+<div class="quartz-cron-tab">
+  <input class="part part-year" type="radio" name="quartz-cron-header" value="year" />
+  <label>年</label>
+  <input class="part part-week" type="radio" checked=checked name="quartz-cron-header" value="dayOfWeek" />
+  <label>周</label>
+  <input class="part part-month" type="radio" name="quartz-cron-header" value="month" />
+  <label>月</label>
+  <input class="part part-day" type="radio" name="quartz-cron-header" value="dayOfMonth" />
+  <label>日</label>
+  <input class="part part-hour" type="radio" name="quartz-cron-header" value="hour" />
+  <label>时</label>
+  <input class="part part-minute" type="radio" name="quartz-cron-header" value="minute" />
+  <label>分</label>
+  <input class="part part-second" type="radio" name="quartz-cron-header" value="second" />
+  <label>秒</label>
+  <input class="part part-raw" type="radio" name="quartz-cron-header" value="raw" />
+  <label>原始值</label>
+
+  <div class="part-editor-form part-editor-form-year">
+    {{quartz-cron-year-editor value=year}}
+  </div>
+  <div class="part-editor-form part-editor-form-day-of-week">
+    {{quartz-cron-day-of-week-editor value=dayOfWeek partType="dayOfWeek"}}
+  </div>
+  <div class="part-editor-form part-editor-form-month">
+    {{quartz-cron-month-editor value=month}}
+  </div>
+  <div class="part-editor-form part-editor-form-day-of-month">
+    {{quartz-cron-day-of-month-editor value=dayOfMonth partType="dayOfMonth"}}
+  </div>
+  <div class="part-editor-form part-editor-form-hour">
+    {{quartz-cron-hour-editor value=hour}}
+  </div>
+  <div class="part-editor-form part-editor-form-minute">
+    {{quartz-cron-minute-editor value=minute}}
+  </div>
+  <div class="part-editor-form part-editor-form-second">
+    {{quartz-cron-second-editor value=second}}
+  </div>
+  <div class="part-editor-form part-editor-form-raw">
+    {{input value=cron}}
+  </div>
+</div>
