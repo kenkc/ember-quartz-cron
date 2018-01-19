@@ -4,9 +4,9 @@
   }
 
   .part-year:checked~.part-editor-form-year,
-  .part-week:checked~.part-editor-form-day-of-week,
+  .part-day-of-week:checked~.part-editor-form-day-of-week,
   .part-month:checked~.part-editor-form-month,
-  .part-day:checked~.part-editor-form-day-of-month,
+  .part-day-of-month:checked~.part-editor-form-day-of-month,
   .part-hour:checked~.part-editor-form-hour,
   .part-minute:checked~.part-editor-form-minute,
   .part-second:checked~.part-editor-form-second,
@@ -18,22 +18,22 @@
   <p>Result: {{cron}}</p>
 </div>
 <div class="quartz-cron-tab">
-  <input class="part part-year" type="radio" name="quartz-cron-header" value="year" />
-  <label>年</label>
-  <input class="part part-week" type="radio" checked=checked name="quartz-cron-header" value="dayOfWeek" />
-  <label>周</label>
-  <input class="part part-month" type="radio" name="quartz-cron-header" value="month" />
-  <label>月</label>
-  <input class="part part-day" type="radio" name="quartz-cron-header" value="dayOfMonth" />
-  <label>日</label>
-  <input class="part part-hour" type="radio" name="quartz-cron-header" value="hour" />
-  <label>时</label>
-  <input class="part part-minute" type="radio" name="quartz-cron-header" value="minute" />
-  <label>分</label>
-  <input class="part part-second" type="radio" name="quartz-cron-header" value="second" />
-  <label>秒</label>
-  <input class="part part-raw" type="radio" name="quartz-cron-header" value="raw" />
-  <label>原始值</label>
+  <input id="part-year" class="part part-year" type="radio" name="quartz-cron-header" value="year" />
+  <label for="part-year">年</label>
+  <input id="part-day-of-week" class="part part-day-of-week" type="radio" checked=checked name="quartz-cron-header" value="dayOfWeek" />
+  <label for="part-day-of-week">周</label>
+  <input id="part-month" class="part part-month" type="radio" name="quartz-cron-header" value="month" />
+  <label for="part-month">月</label>
+  <input id="part-day-of-month" class="part part-day-of-month" type="radio" name="quartz-cron-header" value="dayOfMonth" />
+  <label for="part-day-of-month">日</label>
+  <input id="part-hour" class="part part-hour" type="radio" name="quartz-cron-header" value="hour" />
+  <label for="part-hour">时</label>
+  <input id="part-minute" class="part part-minute" type="radio" name="quartz-cron-header" value="minute" />
+  <label for="part-minute">分</label>
+  <input id="part-second" class="part part-second" type="radio" name="quartz-cron-header" value="second" />
+  <label for="part-second">秒</label>
+  <input id="part-raw" class="part part-raw" type="radio" name="quartz-cron-header" value="raw" />
+  <label for="part-raw">原始值</label>
 
   <div class="part-editor-form part-editor-form-year">
     {{quartz-cron-year-editor value=year}}
