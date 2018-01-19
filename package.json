@@ -1,7 +1,7 @@
 {
   "name": "ember-quartz-cron",
   "version": "0.0.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Quartz Cron Component for Ember 2 Applications.",
   "keywords": [
     "ember-addon",
     "quartz",
@@ -16,7 +16,10 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pudgecon/ember-quartz-cron.git"
+  },
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
