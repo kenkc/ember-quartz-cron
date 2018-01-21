@@ -1,6 +1,6 @@
 {
   "name": "ember-quartz-cron",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Quartz Cron Component for Ember 2 Applications.",
   "keywords": [
     "ember-addon",
